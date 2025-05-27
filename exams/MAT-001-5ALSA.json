@@ -1,0 +1,212 @@
+{
+  "title": "Esame di Matematica: Limiti, Derivate e Integrali - 5° Liceo Scientifico",
+  "total_score": 30,
+  "max_score": 30,
+  "sufficiency_mark": 18,
+  "autocorrect": false,
+  "questions": [
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Definisci il concetto di limite di una funzione in un punto.",
+      "value": 1
+    },
+    {
+      "type": "true_false",
+      "format": "",
+      "accept": "",
+      "question": "Il limite di una funzione in un punto può esistere anche se la funzione non è definita in quel punto.",
+      "value": 1
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual è il limite di $$f(x) = (x^2 - 1)/(x - 1)$$ per x che tende a 1?",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica il calcolo completo del limite: $$\\lim(x \\to 0) (\\frac{\\sin(3x)}{x})$$",
+      "value": 2
+    },
+    {
+      "type": "true_false_justify",
+      "format": "",
+      "accept": "",
+      "question": "Il limite infinito indica che la funzione cresce senza limiti in valore assoluto.",
+      "value": 1
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual è la definizione di derivata di una funzione in un punto?",
+      "value": 1
+    },
+    {
+      "type": "true_false",
+      "format": "",
+      "accept": "",
+      "question": "La derivata di una funzione costante è sempre zero.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica la risoluzione completa della derivata di $$f(x) = x^3 - 5x + 2$$",
+      "value": 2
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual è la derivata della funzione $$f(x) = e^x$$.",
+      "value": 1
+    },
+    {
+      "type": "paragraph",
+      "format": "",
+      "accept": "",
+      "question": "Spiega cosa rappresenta geometricamente la derivata di una funzione in un punto.",
+      "value": 2
+    },
+    {
+      "type": "true_false",
+      "format": "",
+      "accept": "",
+      "question": "La derivata di una somma di funzioni è la somma delle derivate.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica la dimostrazione che la derivata del prodotto di due funzioni segue la regola del prodotto.",
+      "value": 3
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Scrivi la formula dell'integrale indefinito di $$f(x) = x^2$$.",
+      "value": 1
+    },
+    {
+      "type": "true_false",
+      "format": "",
+      "accept": "",
+      "question": "L'integrale definito di una funzione è sempre positivo.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica il calcolo completo dell'integrale definito: $$\\int_0^2 (3x^2 - 2x) \\ dx$$.",
+      "value": 3
+    },
+    {
+      "type": "paragraph",
+      "format": "",
+      "accept": "",
+      "question": "Spiega la differenza tra integrale definito e integrale indefinito.",
+      "value": 2
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Cos'è un integrale improprio?",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica la risoluzione di un integrale improprio a tua scelta con spiegazione completa.",
+      "value": 3
+    },
+    {
+      "type": "true_false_justify",
+      "format": "",
+      "accept": "",
+      "question": "Gli integrali impropri convergono sempre.",
+      "value": 1
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Scrivi la derivata della funzione $$f(x) = ln(x)$$.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica la risoluzione completa di $$\\lim_{x \\to \\infty} (1 + \\frac{1}{x})^x$$.",
+      "value": 2
+    },
+    {
+      "type": "paragraph",
+      "format": "",
+      "accept": "",
+      "question": "Descrivi come si usa il teorema fondamentale del calcolo integrale.",
+      "value": 2
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual è la primitiva della funzione $$f(x) = cos(x)$$",
+      "value": 1
+    },
+    {
+      "type": "true_false",
+      "format": "",
+      "accept": "",
+      "question": "L'integrale di una funzione positiva su un intervallo è sempre maggiore di zero.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica un esercizio svolto su un limite notevole a tua scelta.",
+      "value": 2
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "A che valore tende il seguente limite? $$\\lim_{x \\to 0} \\left(\\frac{\\sin(x)}{x}\\right)$$",
+      "value": 1
+    },
+    {
+      "type": "true_false_justify",
+      "format": "",
+      "accept": "",
+      "question": "La funzione $$f(x) = 1/x$$ ha limite infinito per x che tende a 0 da destra.",
+      "value": 1
+    },
+    {
+      "type": "file-upload",
+      "format": ".tex",
+      "accept": "application/tex",
+      "question": "Carica la dimostrazione del teorema di Rolle su un esempio concreto.",
+      "value": 3
+    },
+    {
+      "type": "paragraph",
+      "format": "",
+      "accept": "",
+      "question": "Spiega la differenza tra limite destro e limite sinistro.",
+      "value": 2
+    }
+  ]
+}

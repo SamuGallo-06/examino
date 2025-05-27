@@ -1,0 +1,79 @@
+{
+    "title": "Esame di Informatica: Fondamenti di Python",
+    "total_score": 16,
+    "max_score": 30,
+    "sufficiency_mark": 18,
+    "autocorrect": true,
+    "questions": [
+      {
+        "type": "short_answer",
+        "format": "",
+        "accept": "",
+        "question": "Con quale parola chiave si definisce una funzione in Python?",
+        "value": 1
+      },
+      {
+        "type": "true_false",
+        "format": "",
+        "accept": "",
+        "question": "In Python, le stringhe sono immutabili.",
+        "value": 1
+      },
+      {
+        "type": "short_answer",
+        "format": "",
+        "accept": "",
+        "question": "Che tipo di dato restituisce la funzione len()?",
+        "value": 1
+      },
+      {
+        "type": "true_false_justify",
+        "format": "",
+        "accept": "",
+        "question": "Il simbolo '==' serve ad assegnare un valore a una variabile.",
+        "value": 1
+      },
+      {
+        "type": "paragraph",
+        "format": "",
+        "accept": "",
+        "question": "Spiega cosa sono le liste in Python e come si differenziano dalle tuple.",
+        "value": 2
+      },
+      {
+        "type": "true_false",
+        "format": "",
+        "accept": "",
+        "question": "In Python è possibile usare cicli 'for' e 'while'.",
+        "value": 1
+      },
+      {
+        "type": "short_answer",
+        "format": "",
+        "accept": "",
+        "question": "Quale funzione viene usata per ottenere un input da tastiera?",
+        "value": 1
+      },
+      {
+        "type": "file-upload",
+        "format": ".py",
+        "accept": "text/py",
+        "question": "Scrivi un programma che chieda all’utente un numero e stampi se è pari o dispari.",
+        "value": 3
+      },
+      {
+        "type": "file-upload",
+        "format": ".py",
+        "accept": "text/py",
+        "question": "Scrivi una funzione Python che riceva due numeri e restituisca il maggiore. Richiamare la funzione nello stesso file, con parametri immessi dall'utente.",
+        "value": 3
+      },
+      {
+        "type": "file-upload",
+        "format": ".py",
+        "accept": "text/py",
+        "question": "Scrivi programma che, con un ciclo for, stampi i numeri da 1 a 10 inclusi.",
+        "value": 2
+      }
+    ]
+  }

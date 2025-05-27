@@ -1,0 +1,51 @@
+{
+  "title": "Test di Informatica - Fondamenti di HTML",
+  "total_score": 10,
+  "max_score": 10,
+  "sufficiency_mark": 6,
+  "autocorrect": true,
+  "questions": [
+    {
+      "type": "true_false_justify",
+      "format": "",
+      "accept": "",
+      "question": "HTML è un linguaggio di programmazione?",
+      "value": 1
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual'è il tag che permette di inserire un paragrafo?",
+      "value": 1
+    },
+    {
+      "type": "short_answer",
+      "format": "",
+      "accept": "",
+      "question": "Qual'è l'attributo che in una tabella permette di importare la larghezza in colonne di una cella appartenente ad una tabella in HTML? ",
+      "value": 1
+    },
+    {
+      "type": "paragraph",
+      "format": "",
+      "accept": "",
+      "question": "Che cos'è l'HTML? A cosa serve?",
+      "value": 2
+    },
+    {
+      "type": "file-upload",
+      "format": "text/html",
+      "accept": ".html",
+      "question": "Crea una pagina HTML con un link che porti a https://www.wikipedia.org, con il testo \"Visita Wikipedia\".",
+      "value": 3
+    },
+    {
+      "type": "file-upload",
+      "format": "text/html",
+      "accept": ".html",
+      "question": "Crea una pagina HTML che visualizzi un'immagine chiamata foto.jpg salvata nella stessa cartella del file HTML.",
+      "value": 2
+    }
+  ]
+}

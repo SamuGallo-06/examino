@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/math-editor.css') }}" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+        <title>Examino v1.0</title>
+
+        <!--MathJax-->
+        <script>
+            window.MathJax = {
+              tex: {inlineMath: [['$', '$']]},
+              svg: {fontCache: 'global'}
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        <script src="../static/js/math-editor.js"></script>
+        <!-- KaTeX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+        <script>
+            function preparePDF() {
+                const latex = document.getElementById("editor").innerText;
+                document.getElementById("latexInput").value = latex;
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1 class="test-name">Editor di equazioni</h1>
+        </header>
+        <form action="/math-editor/generate-pdf" method="post" id="latexForm">
+            <input type="hidden" name="latex" id="latexInput" style="display:none;">
+            Nome del file: <input type="text" id="filename" name="filename" /><button onclick="preparePDF()" title="Esporta" type="submit">📄 Salva</button>
+        </form>        
+
+        <div class="button-container">
+            <div class="button-row">
+                <button onclick="insertText('\\pm ')">$$\pm$$</button>
+                <button onclick="insertText('\\times ')">$$\times$$</button>
+                <button onclick="insertText('\\div ')">$$\div$$</button>
+                <button onclick="insertText('\\cdot ')">$$\cdot$$</button>
+                <button onclick="insertText('\\frac{a}{b} ')">$$\frac{a}{b}$$</button>
+                <button onclick="insertText('\\approx ')">$$\approx$$</button>
+                <button onclick="insertText('\\equiv ')">$$\equiv$$</button>
+                <button onclick="insertText('\\infty ')">$$\infty$$</button>
+                <button onclick="insertText('\\leq ')">$$\leq$$</button>
+                <button onclick="insertText('\\geq ')">$$\geq$$</button>
+                <button onclick="insertText('\\neq ')">$$\neq$$</button>
+                <button onclick="insertText('= ')">$$=$$</button>
+                <button onclick="insertText('\\sin ')">$$\sin$$</button>
+                <button onclick="insertText('\\cos ')">$$\cos$$</button>
+                <button onclick="insertText('\\tan ')">$$\tan$$</button>
+                <button onclick="insertText('\\ln ')">$$\ln$$</button>
+                <button onclick="insertText('\\log ')">$$\log$$</button>
+                <button onclick="insertText('\\int ')">$$\int$$</button>
+                <button onclick="insertText('\\int_{a}^{b} ')">$$\int_{a}^{b}$$</button>
+                <button onclick="insertText('\\sum ')">$$\sum$$</button>
+                <button onclick="insertText('\\sum_{i=1}^{n} ')">$$\sum_{i=1}^{n}$$</button>
+                <button onclick="insertText('\\lim_{x \\to a} ')">$$\lim_{x \to a}$$</button>
+                <button onclick="insertText('\\in ')">$$\in$$</button>
+                <button onclick="insertText('\\notin ')">$$\notin$$</button>
+                <button onclick="insertText('\\subset ')">$$\subset$$</button>
+                <button onclick="insertText('\\subseteq ')">$$\subseteq$$</button>
+                <button onclick="insertText('\\cup ')">$$\cup$$</button>
+                <button onclick="insertText('\\cap ')">$$\cap$$</button>
+                <button onclick="insertText('\\alpha ')">$$\alpha$$</button>
+                <button onclick="insertText('\\beta ')">$$\beta$$</button>
+                <button onclick="insertText('\\gamma ')">$$\gamma$$</button>
+                <button onclick="insertText('\\pi ')">$$\pi$$</button>
+                <button onclick="insertText('\\text{Commento} ')">$$\text{Commento}$$</button>
+                <button onclick="insertText('\\begin{cases} x+1=2 \\\\ y-1=3 \\end{cases}')">
+                    $$\begin{cases} x+1=2 \\\\ y-1=3 \end{cases}$$
+                </button>
+                <button onclick="insertText('\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}')">
+                    $$\begin{bmatrix} a & b \\\\ c & d \end{bmatrix}$$
+                </button>
+            </div>
+        </div>
+
+        <div id="editor" contenteditable="true"></div>
+
+        <h3>Anteprima:</h3>
+        <button onclick="updatePreview()" title="Anteprima">🔄 Aggiorna anteprima</button>
+        <div id="preview"></div>
+    </body>
+</html>

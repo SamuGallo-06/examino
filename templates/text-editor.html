@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/text-editor.css') }}" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+        <title>Examino v1.0</title>
+
+        <script>
+            window.MathJax = {
+              tex: {inlineMath: [['$', '$']]},
+              svg: {fontCache: 'global'}
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        <script src="../static/js/text-editor.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1 class="test-name">Editor di testo</h1>
+        </header>
+        Nome del file: <input type="text" id="filename" /><br/>
+        <div class="button-container">
+            <button onclick="format('bold')" title="Grassetto"><i class="fas fa-bold"></i></button>
+            <button onclick="format('italic')" title="Corsivo"><i class="fas fa-italic"></i></button>
+            <button onclick="format('underline')" title="Sottolineato"><i class="fas fa-underline"></i></button>
+            <button onclick="format('justifyLeft')" title="Allinea a sinistra"><i class="fas fa-align-left"></i></button>
+            <button onclick="format('justifyCenter')" title="Centra"><i class="fas fa-align-center"></i></button>
+            <button onclick="format('justifyRight')" title="Allinea a destra"><i class="fas fa-align-right"></i></button>
+            <button onclick="downloadPDF()" title="Esporta">📄</button>
+            <select onchange="formatFontFamily(this.value)" title="Tipo di font">
+                <option value="Arial" selected>Arial</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+
+            <select onchange="formatFontSize(this.value)" title="Dimensione font">
+                <option value="1">Piccolo</option>
+                <option value="2">Normale</option>
+                <option value="3" selected>Medio</option>
+                <option value="4">Grande</option>
+                <option value="5">Molto grande</option>
+                <option value="6">Enorme</option>
+                <option value="7">Max</option>
+            </select>
+        </div>
+
+        <div id="editor" contenteditable="true"></div>
+    </body>
+</html>

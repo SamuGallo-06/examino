@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>Examino v1.0</title>
+        <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    </head>
+
+    <body>
+
+        {% if restart %}
+        <script>
+            alert("Impostazioni salvate! Riavvia il server per applicare le modifiche.");
+        </script>
+        {% endif %}
+
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+        </header>
+
+        <div>
+            <h1>Pannello di controllo</h1>
+        </div>
+
+        <div class="box">
+            <form action="/control-panel/save" method="post">
+                <label>Percorso Esami</label><br/>
+                <input type="text" name="percorso-esami"><br/><br/>
+            
+                <label>Percorso Archivio esami</label><br/>
+                <input type="text" name="percorso-archivio"><br/><br/>
+            
+                <button type="submit">Salva Impostazioni</button>
+            </form>
+        </div>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>Examino v1.0</title>
+
+        <script>
+            window.MathJax = {
+              tex: {inlineMath: [['$', '$']]},
+              svg: {fontCache: 'global'}
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        <script src="../static/js/test.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1 class="test-name">{{ examTitle }}</h1>
+        </header>
+
+
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="codice_test" value="{{ codice_test }}">
+            <input type="hidden" name="test_name" value="{{ examTitle }}">
+            <input type="hidden" name="candidateName" value="{{ nome }}">
+            <input type="hidden" name="candidateSurname" value="{{ cognome }}">
+            {% for question, qtype, format, accept in questions %}
+                <div class="question">
+                    <p><strong>{{ loop.index }}. {{ question | safe }}</strong></p>
+                    {% if qtype == 'true_false' %}
+                        <div class="option">
+                            <label><input type="radio" name="q{{ loop.index }}" value="True"> Vero</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q{{ loop.index }}" value="False"> Falso</label>
+                        </div>
+                    {% elif qtype == 'true_false_justify'%}
+                        <div class="option">
+                            <label><input type="radio" name="q{{ loop.index }}" value="True"> Vero</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q{{ loop.index }}" value="False"> Falso</label>
+                        </div>
+                        <div class="option">
+                            <label>Motiva la tua risposta</label><br/>
+                            <textarea name="q{{ loop.index }}_motivation"></textarea>
+                        </div>
+                    {% elif qtype == 'short_answer' %}
+                        <input type="text" name="q{{ loop.index }}">
+                    {% elif qtype == 'paragraph' %}
+                        <textarea name="q{{ loop.index }}"></textarea>
+                    {% elif qtype == 'file-upload' %}
+                        <span>Carica un file contenente la tua risposta.</span><br/>
+                        <span>Formati accettati: {{ format }}</span><br/><br/>
+                        <input type="file" name="q{{ loop.index }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit">Invia</button>
+            
+            <div class="appbar">
+                <img class="app-icon" src="{{ url_for('static', filename='images/icons/text-editor.png') }}" 
+                    alt="Editor di testo" onclick="openApp('/text-editor')">
+                <img class="app-icon" src="{{ url_for('static', filename='images/icons/math-editor.png') }}" 
+                    alt="Editor Equazioni" onclick="openApp('/math-editor')">
+            </div>
+        </form>
+    </body>
+</html>

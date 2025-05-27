@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>Examino v1.0</title>
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1 class="test-name">{{ examTitle }}: Risultati</h1>
+        </header>
+
+        <div class="box">
+            <input type="hidden" name="autocorrect" value="{{ autocorrect }}">
+            <span>Candidato: {{ candiateName }} {{ candidateSurname }}</span><br/>
+            {% if autocorrect == true %}
+                <span>Punteggio: {{ score }} / {{ total }}</span><br/>
+                <span>Voto: {{ voto }}</span><br/>
+                <span>Voto Massimo: {{ votoMax }}</span><br/>
+                <span>Sufficenza: {{ sogliaSufficenza }}</span><br/><br/>
+                {% if voto >= sogliaSufficenza %}
+                  <span>Test Passato</span>
+                {% else %}
+                  <span>Test Non superato</span>
+                {% endif %}
+            {% else %}
+                <span>Test non corretto automaticamente</span>
+            {% endif %}
+
+            <br/>
+            {% for r in results %}
+                <div class="question">
+                  <h3>{{ r.question }}</strong></h3>
+                  Tua risposta: {{ r.user_answer }}<br>
+                  <br/>
+                  {% if autocorrect == true %}
+                    {% if r.correct %}
+                      ✅ Corretta
+                    {% else %}
+                      ❌ Sbagliata
+                    {% endif %}
+                  {% endif %}
+                  <br/><br/>
+                  <strong>Punteggio:</strong> {{ r.score }} / {{ r.maxScore }}<br/>
+                  <strong>Commento:</strong><br/>
+                  {{ r.comment }}
+                  <br/>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

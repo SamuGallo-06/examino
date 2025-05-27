@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>Examino v1.0</title>
+        <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+        </header>
+
+        <div>
+            <h1>Accedi al test</h1>
+        </div>
+
+        <div class="box">
+            <form action="/test" method="post">
+                <label>Nome</label><br/>
+                <input type="text" name="nome"><br/><br/>
+            
+                <label>Cognome</label><br/>
+                <input type="text" name="cognome"><br/><br/>
+            
+                <label>Codice Test</label><br/>
+                <input type="text" name="codice_test"><br/><br/>
+            
+                <button type="submit">Accedi</button>
+            </form>
+        </div>
+
+        <footer>
+            <p><strong>Examino v1.0</strong> 2025 - Sviluppato da Samuele Gallicani</p>
+            <p>Ultimo aggiornamento: Maggio 2025</p>
+            <p>Rilasciato sotto licenza <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a></p>
+        </footer>
+</html>

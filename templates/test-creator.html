@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>Examino v1.0</title>
+        <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='js/test-creator.js') }}"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+        </header>
+
+        {% if success %}
+        <script>
+            alert("Esame salvato con successo");
+        </script>
+        {% endif %}
+
+        <div>
+            <h1>Nuovo Test</h1>
+        </div>
+
+        <div class="box">
+            <form action="/test-creator/save" method="post">
+                <label>Nome</label><br/>
+                <input type="text" name="nome_test"><br/><br/>
+
+                <label>Codice Test (sarà usato per accedere al test)</label><br/>
+                <input type="text" name="codice_test"><br/><br/>
+            
+                <label>Punteggio Totale</label><br/>
+                <input type="number" name="punteggio_totale"><br/><br/>
+
+                <label>Voto Massimo</label><br/>
+                <input type="number" name="voto_massimo"><br/><br/>
+
+                <label>Soglia Sufficenza</label><br/>
+                <input type="number" name="soglia_sufficenza"><br/><br/>
+
+                <label>Autocorrezione</label><br/>
+                <input type="radio" name="test_autocorrect" value="True">Si<br/>
+                <input type="radio" name="test_autocorrect" value="False">No<br/><br/>
+
+                <div id="inputContainer">
+                    <!-- I campi verranno aggiunti qui -->
+                </div>
+                <button type="button" onclick="addInputGroup()">➕ Aggiungi domanda</button>
+                <br><br>
+
+                <button type="submit">Salva</button>
+            </form>
+        </div>
+</html>

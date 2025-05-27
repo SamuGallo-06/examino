@@ -9,7 +9,10 @@ def calcola_voto(punteggio, totale, votoMax):
     return round(voto)
     
 def setup():
-    gemini.configure(api_key="AIzaSyDb2taGFackosg-Kc6Hu8fiFI56iQCPnc4")
+    with open("gemini_apiKey", "r") as apiKeyFile:
+        apiKey = apiKeyFile.read()
+    
+    gemini.configure(api_key=apiKey)
     
 def correggi_risposta(domanda = "", risposta="", maxScore=1):
     aiPrompt = f"""Domanda: "{domanda}";

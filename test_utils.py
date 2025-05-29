@@ -9,7 +9,7 @@ def calcola_voto(punteggio, totale, votoMax):
     return round(voto)
     
 def setup():
-    with open("gemini_apiKey", "r") as apiKeyFile:
+    with open("gemini_apikey", "r") as apiKeyFile:
         apiKey = apiKeyFile.read()
     
     gemini.configure(api_key=apiKey)

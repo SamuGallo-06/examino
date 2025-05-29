@@ -28,7 +28,7 @@
             <input type="hidden" name="test_name" value="{{ examTitle }}">
             <input type="hidden" name="candidateName" value="{{ nome }}">
             <input type="hidden" name="candidateSurname" value="{{ cognome }}">
-            {% for question, qtype, format, accept in questions %}
+            {% for question, qtype, format in questions %}
                 <div class="question">
                     <p><strong>{{ loop.index }}. {{ question | safe }}</strong></p>
                     {% if qtype == 'true_false' %}

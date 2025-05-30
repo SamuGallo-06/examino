@@ -1,5 +1,7 @@
 #Folders
 __pycache__/
+exams/
+archivio_esami/
 
 #Files
 gemini_apikey

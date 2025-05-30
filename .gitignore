@@ -2,7 +2,7 @@
 __pycache__/
 exams/
 archivio_esami/
+uploads/
 
 #Files
-gemini_apikey
-capolavoro.txt
+settings.ini

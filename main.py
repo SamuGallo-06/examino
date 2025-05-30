@@ -12,11 +12,27 @@ print(LOGO, flush=True)
 print("[INFO]: Inizializzazione...", flush=True)
 time.sleep(0.5)
 app = Flask(__name__)
+
+print("[INFO]: Creazione file di log...", flush=True)
+time.sleep(0.5)
+with open("examino.log", "w") as logFile:
+    logFile.truncate(0)
+logFile = open("examino.log", "a")
+print("[INFO]: Creazione file di log completata", flush=True)
+time.sleep(0.5)
+
 print("[INFO]: Lettura file di configurazione...", flush=True)
 time.sleep(0.5)
 cfg = configparser.ConfigParser()
-cfg.read("settings.ini")
 
+#Create settings.ini if it doesn't exist
+if not os.path.exists("settings.ini"):
+    with open("settings.ini", "x"):
+        pass
+
+#Read config File with ConfigParser
+cfg.read("settings.ini")
+    
 if not cfg.has_section("EXAMINO"):
     print("[INFO]: Creazione file di configurazione...", flush=True)
     time.sleep(0.5)
@@ -262,6 +278,7 @@ def ControlPanel():
     
 @app.route("/control-panel/save", methods=["POST"])
 def SaveSettings():
+    print("[INFO]: Ricarica della configurazione in corso...", flush=True)
     percorso_esami = str(request.form.get("percorso-esami")).strip()
     percorso_archivio = str(request.form.get("percorso-archivio")).strip()
     
@@ -273,7 +290,10 @@ def SaveSettings():
         cfg.set("EXAMINO", "percorso_archivio", percorso_archivio)
         cfg.set("EXAMINO", "percorso_upload", "uploads")
         cfg.write(settingsFile)
+        
+    test_utils.setup()
     
+    print("[INFO]: Ricarica della configurazione completata", flush=True)
     return render_template(
         "control-panel.html",
         restart=True

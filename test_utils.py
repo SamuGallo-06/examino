@@ -1,17 +1,18 @@
 import re
 import google.generativeai as gemini
 import datetime, os
-
-EXAMS_ARCHIVE = "archivio_esami"
+import configparser
 
 def calcola_voto(punteggio, totale, votoMax):
     voto = (punteggio / totale) * votoMax
     return round(voto)
     
 def setup():
-    with open("gemini_apikey", "r") as apiKeyFile:
-        apiKey = apiKeyFile.read()
-    
+    cfg = configparser.ConfigParser()
+    cfg.read("settings.ini")
+    global EXAMS_ARCHIVE 
+    EXAMS_ARCHIVE = cfg.get("EXAMINO", "archivio_esami")
+    apiKey = cfg.get("EXAMINO", "gemini_apikey")
     gemini.configure(api_key=apiKey)
     
 def correggi_risposta(domanda = "", risposta="", maxScore=1):
@@ -110,7 +111,7 @@ def CreaTestInArchivio(nome, cognome, codice_test):
     return currentExamDir
 
 def DetectFileType(filePath):
-    estensione = os.path.splitext(filePath)[1].lower()  # ".PY" → ".py"
+    estensione = os.path.splitext(filePath)[1].lower()
     
     mapping = {
         ".py": "python",
@@ -127,14 +128,14 @@ def DetectFileType(filePath):
         ".php": "php"
     }
     
-    return mapping.get(estensione, "text")  #plain text se non trova l'estensione o non è tra quelle supportate
+    return mapping.get(estensione, "text") #DEFAULT: plain text
 
 def ProcessResponse(response_text):
-    # Cerca blocco di codice JSON tipo ```json ... ```
+    #Look for markdown code blocks in Ai response
     match = re.search(r"```json\s*(\{.*?\})\s*```", response_text, re.DOTALL)
     if match:
         json_text = match.group(1)
     else:
-        json_text = response_text.strip()  # fallback se non trova il blocco
+        json_text = response_text.strip()
         
     return json_text
